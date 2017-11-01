@@ -1,0 +1,37 @@
+﻿p {
+    text-align: justify;
+}
+
+.logo {
+    padding: 20px 0px;
+}
+
+    .logo img {
+        width: 286px;
+    }
+
+.sticky .logo {
+    padding: 10px 0px;
+}
+
+    .sticky .logo img {
+        width: 172px;
+    }
+
+.brand-title.text-gray {
+    display: none;
+}
+
+#page-content .by-brand-section.mb-80 {
+    width: 100%;
+    padding: 0 185px;
+}
+
+    #page-content .by-brand-section.mb-80 .container {
+        width: 100%;
+    }
+
+.arrow-prev.slick-arrow,
+.arrow-next.slick-arrow {
+    display: none !important;
+}

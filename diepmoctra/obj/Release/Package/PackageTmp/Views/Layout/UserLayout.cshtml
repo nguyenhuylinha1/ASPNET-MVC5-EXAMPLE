@@ -1,0 +1,108 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Subas || Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="Images/icon/favicon.png">
+
+    <!-- All CSS Files -->
+    <!-- Bootstrap fremwork main css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Nivo-slider css -->
+    <link rel="stylesheet" href="css/lib/css/nivo-slider.css">
+    <!-- This core.css file contents all plugings css file. -->
+    <link rel="stylesheet" href="css/core.css">
+    <!-- Theme shortcodes/elements style -->
+    <link rel="stylesheet" href="css/shortcode/shortcodes.css">
+    <!-- Theme main style -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- User style -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Style customizer (Remove these two lines please) -->
+    <link rel="stylesheet" href="css/style-customizer.css">
+    <link href="#" data-style="styles" rel="stylesheet">
+
+    <!-- Modernizr JS -->
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/6D872A42-95E3-5349-B871-C994699522DC/main.js" charset="UTF-8"></script>
+    <link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/CD225996499C-178B-9435-3E59-24A278D6/abn/main.css" />
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Body main wrapper start -->
+    <div class="wrapper">
+        <!-- START HEADER AREA -->
+        @Html.Partial("~/Views/Layout/HeaderPartial.cshtml")
+        <!-- END HEADER AREA -->
+
+        <!-- START MOBILE MENU AREA -->
+        @Html.Partial("~/Views/Layout/MobileMenuPartial.cshtml")
+        <!-- END MOBILE MENU AREA -->
+
+        <!-- START SLIDER AREA -->
+        <!-- END SLIDER AREA -->
+
+        <!-- Start page content -->
+        <section id="page-content" class="page-wrapper">
+            @RenderBody()
+
+            <!-- BY BRAND SECTION START-->
+            <!-- BY BRAND SECTION END -->
+
+            <!-- FEATURED PRODUCT SECTION START -->
+            <!-- FEATURED PRODUCT SECTION END -->
+
+            <!-- UP COMMING PRODUCT SECTION START -->
+            <!-- UP COMMING PRODUCT SECTION END -->
+
+            <!-- PRODUCT TAB SECTION START -->
+            <!-- PRODUCT TAB SECTION END -->
+
+            <!-- BLOG SECTION START -->
+            <!-- BLOG SECTION END -->
+        </section>
+        <!-- End page content -->
+
+        <!-- START FOOTER AREA -->
+        @Html.Partial("~/Views/Layout/FooterPartial.cshtml")
+        <!-- END FOOTER AREA -->
+
+        <!-- START QUICKVIEW PRODUCT -->
+        <!-- END QUICKVIEW PRODUCT -->
+
+        <!--style-customizer start -->
+        @*@Html.Partial("~/Views/Layout/StyleCustomizerPartial.cshtml")*@
+        <!--style-customizer end -->
+    </div>
+    <!-- Body main wrapper end -->
+
+
+    <!-- Placed JS at the end of the document so the pages load faster -->
+
+    <!-- jquery latest version -->
+    <script src="js/vendor/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap framework js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- jquery.nivo.slider js -->
+    <script src="js/lib/jquery.nivo.slider.js"></script>
+    <!-- All js plugins included in this file. -->
+    <script src="js/plugins.js"></script>
+    <!-- Main js file that contents all jQuery plugins activation. -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

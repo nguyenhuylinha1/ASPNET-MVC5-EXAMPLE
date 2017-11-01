@@ -1,0 +1,1266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="diepmoctraModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="diepmoctraModelStoreContainer">
+          <EntitySet Name="Advertise" EntityType="diepmoctraModel.Store.Advertise" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Advisory" EntityType="diepmoctraModel.Store.Advisory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Config" EntityType="diepmoctraModel.Store.Config" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contact" EntityType="diepmoctraModel.Store.Contact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customers" EntityType="diepmoctraModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GroupNews" EntityType="diepmoctraModel.Store.GroupNews" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GroupProduct" EntityType="diepmoctraModel.Store.GroupProduct" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LienKet" EntityType="diepmoctraModel.Store.LienKet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="News" EntityType="diepmoctraModel.Store.News" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Order" EntityType="diepmoctraModel.Store.Order" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderDetail" EntityType="diepmoctraModel.Store.OrderDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Page" EntityType="diepmoctraModel.Store.Page" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Product" EntityType="diepmoctraModel.Store.Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductImage" EntityType="diepmoctraModel.Store.ProductImage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Project" EntityType="diepmoctraModel.Store.Project" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProjectImage" EntityType="diepmoctraModel.Store.ProjectImage" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Support" EntityType="diepmoctraModel.Store.Support" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="diepmoctraModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Video" EntityType="diepmoctraModel.Store.Video" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Visistor" EntityType="diepmoctraModel.Store.Visistor" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_News_GroupNews" Association="diepmoctraModel.Store.FK_News_GroupNews">
+            <End Role="GroupNews" EntitySet="GroupNews" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Order" Association="diepmoctraModel.Store.FK_OrderDetail_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Product" Association="diepmoctraModel.Store.FK_OrderDetail_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="OrderDetail" EntitySet="OrderDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Customers" Association="diepmoctraModel.Store.FK_Orders_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_GroupProduct" Association="diepmoctraModel.Store.FK_Product_GroupProduct">
+            <End Role="GroupProduct" EntitySet="GroupProduct" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Advertise">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="500" />
+          <Property Name="Image" Type="varchar" MaxLength="255" />
+          <Property Name="ImageSmall" Type="varchar" MaxLength="255" />
+          <Property Name="Width" Type="smallint" />
+          <Property Name="Height" Type="smallint" />
+          <Property Name="Link" Type="varchar" MaxLength="255" />
+          <Property Name="Target" Type="varchar" MaxLength="10" />
+          <Property Name="ContentDetail" Type="ntext" />
+          <Property Name="Position" Type="smallint" />
+          <Property Name="PageId" Type="int" />
+          <Property Name="Click" Type="int" />
+          <Property Name="Ord" Type="smallint" />
+          <Property Name="Active" Type="tinyint" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Advisory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Question" Type="ntext" />
+          <Property Name="Answer" Type="ntext" />
+          <Property Name="Status" Type="tinyint" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Title" Type="nvarchar" MaxLength="300" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="Keyword" Type="nvarchar" MaxLength="300" />
+          <Property Name="Active" Type="tinyint" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Mail_Smtp" Type="varchar" MaxLength="64" />
+          <Property Name="Mail_Port" Type="smallint" />
+          <Property Name="Mail_Info" Type="varchar" MaxLength="64" />
+          <Property Name="Mail_Noreply" Type="varchar" MaxLength="64" />
+          <Property Name="Mail_Password" Type="varchar" MaxLength="64" />
+          <Property Name="PlaceHead" Type="nvarchar" MaxLength="500" />
+          <Property Name="PlaceBody" Type="nvarchar" MaxLength="500" />
+          <Property Name="GoogleId" Type="varchar" MaxLength="50" />
+          <Property Name="Contact" Type="ntext" />
+          <Property Name="Contact2" Type="ntext" />
+          <Property Name="Copyright" Type="ntext" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="Keyword" Type="nvarchar" MaxLength="512" />
+          <Property Name="HotLine" Type="varchar" MaxLength="50" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Company" Type="nvarchar" MaxLength="512" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar" MaxLength="512" />
+          <Property Name="Tel" Type="varchar" MaxLength="64" />
+          <Property Name="Mail" Type="varchar" MaxLength="64" />
+          <Property Name="ContentDetail" Type="ntext" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Active" Type="tinyint" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="30" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="PaymentMethods" Type="tinyint" />
+          <Property Name="ModeTransport" Type="tinyint" />
+          <Property Name="Active" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="GroupNews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Image" Type="varchar" MaxLength="256" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="512" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="Keyword" Type="nvarchar" MaxLength="512" />
+          <Property Name="Level" Type="varchar" MaxLength="256" />
+          <Property Name="Ord" Type="int" />
+          <Property Name="Priority" Type="tinyint" />
+          <Property Name="Main" Type="tinyint" />
+          <Property Name="Hot" Type="tinyint" />
+          <Property Name="Active" Type="tinyint" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="GroupProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="500" />
+          <Property Name="Image" Type="varchar" MaxLength="256" />
+          <Property Name="Level" Type="nvarchar" MaxLength="100" />
+          <Property Name="Priority" Type="tinyint" />
+          <Property Name="Main" Type="tinyint" />
+          <Property Name="Hot" Type="tinyint" />
+          <Property Name="Title" Type="nvarchar" MaxLength="300" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="Keyword" Type="nvarchar" MaxLength="300" />
+          <Property Name="Active" Type="tinyint" />
+          <Property Name="Ord" Type="int" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="LienKet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="ntext" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Link" Type="ntext" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+          <Property Name="Detail" Type="ntext" />
+          <Property Name="Image" Type="ntext" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="Keyword" Type="nvarchar" MaxLength="256" />
+          <Property Name="Views" Type="int" />
+          <Property Name="Contents" Type="ntext" />
+          <Property Name="GroupNewsId" Type="int" />
+          <Property Name="Active" Type="tinyint" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="TotalPrice" Type="float" />
+          <Property Name="DateCreate" Type="datetime" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
+          <Property Name="Active" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="TotalAmount" Type="float" />
+        </EntityType>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+          <Property Name="NameMain" Type="nvarchar" MaxLength="256" />
+          <Property Name="Image" Type="varchar" MaxLength="256" />
+          <Property Name="Summary" Type="ntext" />
+          <Property Name="ContentDetail" Type="ntext" />
+          <Property Name="Level" Type="varchar" MaxLength="256" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="Keyword" Type="nvarchar" MaxLength="512" />
+          <Property Name="Type" Type="tinyint" />
+          <Property Name="Link" Type="varchar" MaxLength="512" />
+          <Property Name="Target" Type="varchar" MaxLength="64" />
+          <Property Name="BackgroundId" Type="int" />
+          <Property Name="Main" Type="tinyint" />
+          <Property Name="Position" Type="tinyint" />
+          <Property Name="Ord" Type="int" />
+          <Property Name="Active" Type="tinyint" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="GroupProductId" Type="int" />
+          <Property Name="Image" Type="varchar" MaxLength="256" />
+          <Property Name="FileAttach1" Type="varchar" MaxLength="250" />
+          <Property Name="FileAttach2" Type="varchar" MaxLength="250" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="500" />
+          <Property Name="Content" Type="ntext" />
+          <Property Name="ContentDetail" Type="ntext" />
+          <Property Name="ContentDetail2" Type="ntext" />
+          <Property Name="Price" Type="float" />
+          <Property Name="PriceNew" Type="float" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="Views" Type="int" />
+          <Property Name="Priority" Type="tinyint" />
+          <Property Name="Main" Type="tinyint" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Title" Type="nvarchar" MaxLength="300" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="Keyword" Type="nvarchar" MaxLength="300" />
+          <Property Name="Active" Type="tinyint" />
+          <Property Name="Ord" Type="int" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="200" />
+          <Property Name="ImageSmall" Type="varchar" MaxLength="250" />
+          <Property Name="Image" Type="varchar" MaxLength="250" />
+          <Property Name="Active" Type="tinyint" />
+          <Property Name="Ord" Type="int" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Tag" Type="nvarchar" MaxLength="256" />
+          <Property Name="Image" Type="varchar" MaxLength="256" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="512" />
+          <Property Name="ContentDetail" Type="ntext" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="Keyword" Type="nvarchar" MaxLength="512" />
+          <Property Name="Priority" Type="tinyint" />
+          <Property Name="Main" Type="tinyint" />
+          <Property Name="Hot" Type="tinyint" />
+          <Property Name="Views" Type="int" />
+          <Property Name="Active" Type="tinyint" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="ProjectImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="200" />
+          <Property Name="ImageSmall" Type="varchar" MaxLength="250" />
+          <Property Name="Image" Type="varchar" MaxLength="250" />
+          <Property Name="Active" Type="tinyint" />
+          <Property Name="Ord" Type="int" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="256" />
+          <Property Name="Type" Type="tinyint" />
+          <Property Name="Nick" Type="varchar" MaxLength="128" />
+          <Property Name="Ord" Type="int" />
+          <Property Name="Active" Type="tinyint" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Username" Type="varchar" MaxLength="64" />
+          <Property Name="Password" Type="varchar" MaxLength="64" />
+          <Property Name="Level" Type="varchar" MaxLength="50" />
+          <Property Name="Admin" Type="tinyint" />
+          <Property Name="Ord" Type="int" />
+          <Property Name="Active" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Image" Type="ntext" />
+          <Property Name="Link" Type="ntext" />
+          <Property Name="Lang" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Visistor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ivisistor" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_News_GroupNews">
+          <End Role="GroupNews" Type="diepmoctraModel.Store.GroupNews" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="News" Type="diepmoctraModel.Store.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupNews">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="GroupNewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Order">
+          <End Role="Order" Type="diepmoctraModel.Store.Order" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetail" Type="diepmoctraModel.Store.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Product">
+          <End Role="Product" Type="diepmoctraModel.Store.Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetail" Type="diepmoctraModel.Store.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Customers">
+          <End Role="Customers" Type="diepmoctraModel.Store.Customers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Order" Type="diepmoctraModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_GroupProduct">
+          <End Role="GroupProduct" Type="diepmoctraModel.Store.GroupProduct" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Product" Type="diepmoctraModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="GroupProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="diepmoctraModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DiepMocTraEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Advertises" EntityType="diepmoctraModel.Advertise" />
+          <EntitySet Name="Advisories" EntityType="diepmoctraModel.Advisory" />
+          <EntitySet Name="Configs" EntityType="diepmoctraModel.Config" />
+          <EntitySet Name="Contacts" EntityType="diepmoctraModel.Contact" />
+          <EntitySet Name="Customers" EntityType="diepmoctraModel.Customer" />
+          <EntitySet Name="GroupNews" EntityType="diepmoctraModel.GroupNew" />
+          <EntitySet Name="GroupProducts" EntityType="diepmoctraModel.GroupProduct" />
+          <EntitySet Name="LienKets" EntityType="diepmoctraModel.LienKet" />
+          <EntitySet Name="News" EntityType="diepmoctraModel.News" />
+          <EntitySet Name="Orders" EntityType="diepmoctraModel.Order" />
+          <EntitySet Name="OrderDetails" EntityType="diepmoctraModel.OrderDetail" />
+          <EntitySet Name="Pages" EntityType="diepmoctraModel.Page" />
+          <EntitySet Name="Products" EntityType="diepmoctraModel.Product" />
+          <EntitySet Name="ProductImages" EntityType="diepmoctraModel.ProductImage" />
+          <EntitySet Name="Projects" EntityType="diepmoctraModel.Project" />
+          <EntitySet Name="ProjectImages" EntityType="diepmoctraModel.ProjectImage" />
+          <EntitySet Name="Supports" EntityType="diepmoctraModel.Support" />
+          <EntitySet Name="Users" EntityType="diepmoctraModel.User" />
+          <EntitySet Name="Videos" EntityType="diepmoctraModel.Video" />
+          <EntitySet Name="Visistors" EntityType="diepmoctraModel.Visistor" />
+          <AssociationSet Name="FK_Orders_Customers" Association="diepmoctraModel.FK_Orders_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_News_GroupNews" Association="diepmoctraModel.FK_News_GroupNews">
+            <End Role="GroupNews" EntitySet="GroupNews" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_GroupProduct" Association="diepmoctraModel.FK_Product_GroupProduct">
+            <End Role="GroupProduct" EntitySet="GroupProducts" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Order" Association="diepmoctraModel.FK_OrderDetail_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetail_Product" Association="diepmoctraModel.FK_OrderDetail_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Advertise">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Summary" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ImageSmall" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Width" Type="Int16" />
+          <Property Name="Height" Type="Int16" />
+          <Property Name="Link" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="Target" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="ContentDetail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Position" Type="Int16" />
+          <Property Name="PageId" Type="Int32" />
+          <Property Name="Click" Type="Int32" />
+          <Property Name="Ord" Type="Int16" />
+          <Property Name="Active" Type="Byte" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Advisory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Question" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Answer" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="Byte" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Keyword" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Active" Type="Byte" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Config">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Mail_Smtp" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="Mail_Port" Type="Int16" />
+          <Property Name="Mail_Info" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="Mail_Noreply" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="Mail_Password" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="PlaceHead" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="PlaceBody" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="GoogleId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Contact" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Contact2" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Copyright" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Keyword" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="HotLine" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Company" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Tel" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="Mail" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="ContentDetail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Byte" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="PaymentMethods" Type="Byte" />
+          <Property Name="ModeTransport" Type="Byte" />
+          <Property Name="Active" Type="Byte" />
+          <NavigationProperty Name="Orders" Relationship="diepmoctraModel.FK_Orders_Customers" FromRole="Customers" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="GroupNew">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="Tag" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Summary" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Keyword" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Level" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="Ord" Type="Int32" />
+          <Property Name="Priority" Type="Byte" />
+          <Property Name="Main" Type="Byte" />
+          <Property Name="Hot" Type="Byte" />
+          <Property Name="Active" Type="Byte" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="News" Relationship="diepmoctraModel.FK_News_GroupNews" FromRole="GroupNews" ToRole="News" />
+        </EntityType>
+        <EntityType Name="GroupProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Summary" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="Level" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Priority" Type="Byte" />
+          <Property Name="Main" Type="Byte" />
+          <Property Name="Hot" Type="Byte" />
+          <Property Name="Title" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Keyword" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Active" Type="Byte" />
+          <Property Name="Ord" Type="Int32" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Products" Relationship="diepmoctraModel.FK_Product_GroupProduct" FromRole="GroupProduct" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="LienKet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Link" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Tag" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Detail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Keyword" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Views" Type="Int32" />
+          <Property Name="Contents" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="GroupNewsId" Type="Int32" />
+          <Property Name="Active" Type="Byte" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="GroupNew" Relationship="diepmoctraModel.FK_News_GroupNews" FromRole="News" ToRole="GroupNews" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="TotalPrice" Type="Double" />
+          <Property Name="DateCreate" Type="DateTime" Precision="3" />
+          <Property Name="Note" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Active" Type="Byte" />
+          <NavigationProperty Name="Customer" Relationship="diepmoctraModel.FK_Orders_Customers" FromRole="Order" ToRole="Customers" />
+          <NavigationProperty Name="OrderDetails" Relationship="diepmoctraModel.FK_OrderDetail_Order" FromRole="Order" ToRole="OrderDetail" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="TotalAmount" Type="Double" />
+          <NavigationProperty Name="Order" Relationship="diepmoctraModel.FK_OrderDetail_Order" FromRole="OrderDetail" ToRole="Order" />
+          <NavigationProperty Name="Product" Relationship="diepmoctraModel.FK_OrderDetail_Product" FromRole="OrderDetail" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Tag" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="NameMain" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="Summary" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ContentDetail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Level" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Keyword" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Type" Type="Byte" />
+          <Property Name="Link" Type="String" MaxLength="512" Unicode="false" FixedLength="false" />
+          <Property Name="Target" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="BackgroundId" Type="Int32" />
+          <Property Name="Main" Type="Byte" />
+          <Property Name="Position" Type="Byte" />
+          <Property Name="Ord" Type="Int32" />
+          <Property Name="Active" Type="Byte" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Tag" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Name" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="GroupProductId" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="FileAttach1" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="FileAttach2" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Summary" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ContentDetail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="ContentDetail2" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="PriceNew" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="Views" Type="Int32" />
+          <Property Name="Priority" Type="Byte" />
+          <Property Name="Main" Type="Byte" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Keyword" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Active" Type="Byte" />
+          <Property Name="Ord" Type="Int32" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="GroupProduct" Relationship="diepmoctraModel.FK_Product_GroupProduct" FromRole="Product" ToRole="GroupProduct" />
+          <NavigationProperty Name="OrderDetails" Relationship="diepmoctraModel.FK_OrderDetail_Product" FromRole="Product" ToRole="OrderDetail" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Summary" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="ImageSmall" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Active" Type="Byte" />
+          <Property Name="Ord" Type="Int32" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Tag" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="256" Unicode="false" FixedLength="false" />
+          <Property Name="Summary" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="ContentDetail" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Keyword" Type="String" MaxLength="512" Unicode="true" FixedLength="false" />
+          <Property Name="Priority" Type="Byte" />
+          <Property Name="Main" Type="Byte" />
+          <Property Name="Hot" Type="Byte" />
+          <Property Name="Views" Type="Int32" />
+          <Property Name="Active" Type="Byte" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ProjectImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="Summary" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="ImageSmall" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Active" Type="Byte" />
+          <Property Name="Ord" Type="Int32" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Support">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Tel" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Type" Type="Byte" />
+          <Property Name="Nick" Type="String" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="Ord" Type="Int32" />
+          <Property Name="Active" Type="Byte" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Username" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="Level" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Admin" Type="Byte" />
+          <Property Name="Ord" Type="Int32" />
+          <Property Name="Active" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Link" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Lang" Type="String" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Visistor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Ivisistor" Type="Int64" />
+        </EntityType>
+        <Association Name="FK_Orders_Customers">
+          <End Role="Customers" Type="diepmoctraModel.Customer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Order" Type="diepmoctraModel.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_News_GroupNews">
+          <End Role="GroupNews" Type="diepmoctraModel.GroupNew" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="News" Type="diepmoctraModel.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupNews">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="GroupNewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_GroupProduct">
+          <End Role="GroupProduct" Type="diepmoctraModel.GroupProduct" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Product" Type="diepmoctraModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="GroupProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Order">
+          <End Role="Order" Type="diepmoctraModel.Order" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetail" Type="diepmoctraModel.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetail_Product">
+          <End Role="Product" Type="diepmoctraModel.Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderDetail" Type="diepmoctraModel.OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="diepmoctraModelStoreContainer" CdmEntityContainer="DiepMocTraEntities">
+          <EntitySetMapping Name="Advertises">
+            <EntityTypeMapping TypeName="diepmoctraModel.Advertise">
+              <MappingFragment StoreEntitySet="Advertise">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ImageSmall" ColumnName="ImageSmall" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Target" ColumnName="Target" />
+                <ScalarProperty Name="ContentDetail" ColumnName="ContentDetail" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="PageId" ColumnName="PageId" />
+                <ScalarProperty Name="Click" ColumnName="Click" />
+                <ScalarProperty Name="Ord" ColumnName="Ord" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advisories">
+            <EntityTypeMapping TypeName="diepmoctraModel.Advisory">
+              <MappingFragment StoreEntitySet="Advisory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Configs">
+            <EntityTypeMapping TypeName="diepmoctraModel.Config">
+              <MappingFragment StoreEntitySet="Config">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Mail_Smtp" ColumnName="Mail_Smtp" />
+                <ScalarProperty Name="Mail_Port" ColumnName="Mail_Port" />
+                <ScalarProperty Name="Mail_Info" ColumnName="Mail_Info" />
+                <ScalarProperty Name="Mail_Noreply" ColumnName="Mail_Noreply" />
+                <ScalarProperty Name="Mail_Password" ColumnName="Mail_Password" />
+                <ScalarProperty Name="PlaceHead" ColumnName="PlaceHead" />
+                <ScalarProperty Name="PlaceBody" ColumnName="PlaceBody" />
+                <ScalarProperty Name="GoogleId" ColumnName="GoogleId" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+                <ScalarProperty Name="Copyright" ColumnName="Copyright" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="HotLine" ColumnName="HotLine" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="diepmoctraModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="ContentDetail" ColumnName="ContentDetail" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="diepmoctraModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PaymentMethods" ColumnName="PaymentMethods" />
+                <ScalarProperty Name="ModeTransport" ColumnName="ModeTransport" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupNews">
+            <EntityTypeMapping TypeName="diepmoctraModel.GroupNew">
+              <MappingFragment StoreEntitySet="GroupNews">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Ord" ColumnName="Ord" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Main" ColumnName="Main" />
+                <ScalarProperty Name="Hot" ColumnName="Hot" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupProducts">
+            <EntityTypeMapping TypeName="diepmoctraModel.GroupProduct">
+              <MappingFragment StoreEntitySet="GroupProduct">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Main" ColumnName="Main" />
+                <ScalarProperty Name="Hot" ColumnName="Hot" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Ord" ColumnName="Ord" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LienKets">
+            <EntityTypeMapping TypeName="diepmoctraModel.LienKet">
+              <MappingFragment StoreEntitySet="LienKet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="diepmoctraModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="Contents" ColumnName="Contents" />
+                <ScalarProperty Name="GroupNewsId" ColumnName="GroupNewsId" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="diepmoctraModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="diepmoctraModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pages">
+            <EntityTypeMapping TypeName="diepmoctraModel.Page">
+              <MappingFragment StoreEntitySet="Page">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="NameMain" ColumnName="NameMain" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="ContentDetail" ColumnName="ContentDetail" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Target" ColumnName="Target" />
+                <ScalarProperty Name="BackgroundId" ColumnName="BackgroundId" />
+                <ScalarProperty Name="Main" ColumnName="Main" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Ord" ColumnName="Ord" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="diepmoctraModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="GroupProductId" ColumnName="GroupProductId" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="FileAttach1" ColumnName="FileAttach1" />
+                <ScalarProperty Name="FileAttach2" ColumnName="FileAttach2" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ContentDetail" ColumnName="ContentDetail" />
+                <ScalarProperty Name="ContentDetail2" ColumnName="ContentDetail2" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PriceNew" ColumnName="PriceNew" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Main" ColumnName="Main" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Ord" ColumnName="Ord" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductImages">
+            <EntityTypeMapping TypeName="diepmoctraModel.ProductImage">
+              <MappingFragment StoreEntitySet="ProductImage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="ImageSmall" ColumnName="ImageSmall" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Ord" ColumnName="Ord" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="diepmoctraModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="ContentDetail" ColumnName="ContentDetail" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Main" ColumnName="Main" />
+                <ScalarProperty Name="Hot" ColumnName="Hot" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectImages">
+            <EntityTypeMapping TypeName="diepmoctraModel.ProjectImage">
+              <MappingFragment StoreEntitySet="ProjectImage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="ImageSmall" ColumnName="ImageSmall" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Ord" ColumnName="Ord" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supports">
+            <EntityTypeMapping TypeName="diepmoctraModel.Support">
+              <MappingFragment StoreEntitySet="Support">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Nick" ColumnName="Nick" />
+                <ScalarProperty Name="Ord" ColumnName="Ord" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="diepmoctraModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+                <ScalarProperty Name="Ord" ColumnName="Ord" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="diepmoctraModel.Video">
+              <MappingFragment StoreEntitySet="Video">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Visistors">
+            <EntityTypeMapping TypeName="diepmoctraModel.Visistor">
+              <MappingFragment StoreEntitySet="Visistor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ivisistor" ColumnName="Ivisistor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
